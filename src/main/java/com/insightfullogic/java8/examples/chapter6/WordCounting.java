@@ -47,11 +47,11 @@ public class WordCounting {
     public void countWords(InputStream stream) {
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(stream))) {
             Map<String, Long> counts = reader
-                                        .lines()
-                                        .flatMap(space::splitAsStream)
-                                        .map(String::trim)
-                                        .filter(word -> !word.isEmpty())
-                                        .collect(groupingBy(word -> word, counting()));
+                    .lines()
+                    .flatMap(space::splitAsStream)
+                    .map(String::trim)
+                    .filter(word -> !word.isEmpty())
+                    .collect(groupingBy(word -> word, counting()));
 
             counts.forEach((word, count) -> System.out.println(word + " -> " + count));
         } catch (IOException e) {

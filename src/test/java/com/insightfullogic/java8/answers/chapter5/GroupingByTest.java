@@ -15,8 +15,8 @@ public class GroupingByTest {
     @Test
     public void stringsByLength() {
         com.insightfullogic.java8.answers.chapter5.GroupingBy<String, Integer> stringIntegerGroupingBy = new GroupingBy<>(String::length);
-        Map<Integer,List<String>> results = Stream.of("a", "b", "cc", "dd")
-                                                  .collect(stringIntegerGroupingBy);
+        Map<Integer, List<String>> results = Stream.of("a", "b", "cc", "dd")
+                .collect(stringIntegerGroupingBy);
 
         System.out.println(results);
 
