@@ -11,10 +11,12 @@ import static java.util.stream.Collectors.toSet;
 
 public class Refactor {
 
-    public static interface LongTrackFinder {
-        public Set<String> findLongTracks(List<Album> albums);
+    public interface LongTrackFinder {
+        Set<String> findLongTracks(List<Album> albums);
     }
 
+
+    // 遗留代码：找出长度大于 1 分钟的曲目
     public static class Step0 implements LongTrackFinder {
         // BEGIN findLongTracks_0
         public Set<String> findLongTracks(List<Album> albums) {
@@ -29,7 +31,7 @@ public class Refactor {
             }
             return trackNames;
         }
-// END findLongTracks_0
+        // END findLongTracks_0
     }
 
     public static class Step1 implements LongTrackFinder {
@@ -39,6 +41,12 @@ public class Refactor {
             albums.stream()
                     .forEach(album -> {
                         album.getTracks()
+                                /*
+                                    最内层的 forEach 方法有三个功用：
+                                    1. 找出长度大于 1 分钟的曲目
+                                    2. 得到符合条件的曲目名称
+                                    3. 将曲目名称加入集合 Set
+                                 */
                                 .forEach(track -> {
                                     if (track.getLength() > 60) {
                                         String name = track.getName();
@@ -48,7 +56,7 @@ public class Refactor {
                     });
             return trackNames;
         }
-// END findLongTracks_1
+        // END findLongTracks_1
     }
 
     public static class Step2 implements LongTrackFinder {
@@ -58,13 +66,17 @@ public class Refactor {
             albums.stream()
                     .forEach(album -> {
                         album.getTracks()
+                                // 找出满足某种条件的曲目是 filter 的功能
                                 .filter(track -> track.getLength() > 60)
+                                // 得到曲目名称则可用 map 达成
                                 .map(track -> track.getName())
+                                // 终结操作可使用 forEach 方法将曲目名称加入一个集合
                                 .forEach(name -> trackNames.add(name));
                     });
+
             return trackNames;
         }
-// END findLongTracks_2
+        // END findLongTracks_2
     }
 
     public static class Step3 implements LongTrackFinder {
@@ -73,6 +85,8 @@ public class Refactor {
             Set<String> trackNames = new HashSet<>();
 
             albums.stream()
+                    // 把多个 Stream 合并成一个 Stream 并返回
+                    // 这里是将所有的 album 下的 Tracks 合并成一个 Stream
                     .flatMap(album -> album.getTracks())
                     .filter(track -> track.getLength() > 60)
                     .map(track -> track.getName())
@@ -80,7 +94,7 @@ public class Refactor {
 
             return trackNames;
         }
-// END findLongTracks_3
+        // END findLongTracks_3
     }
 
     public static class Step4 implements LongTrackFinder {
@@ -92,7 +106,7 @@ public class Refactor {
                     .map(track -> track.getName())
                     .collect(toSet());
         }
-// END findLongTracks_4
+        // END findLongTracks_4
     }
 
 }

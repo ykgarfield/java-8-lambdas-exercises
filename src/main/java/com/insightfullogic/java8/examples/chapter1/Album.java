@@ -15,10 +15,15 @@ import static java.util.stream.Collectors.toList;
 
 /**
  * @author richard
+ *
+ * 专辑
  */
 public final class Album implements Performance {
 
+    // 专辑名称
     private String name;
+
+    // 曲目列表
     private List<Track> tracks;
     private List<Artist> musicians;
 

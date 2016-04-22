@@ -5,6 +5,10 @@ import com.insightfullogic.java8.examples.chapter1.Artist;
 import java.util.Iterator;
 import java.util.List;
 
+
+/**
+ * 如果返回值是 Stream，那么是惰性求值；如果返回值是另一个值或为空，那么就是及早求值
+ */
 public class Iteration {
 
     public int externalCountArtistsFromLondon(List<Artist> allArtists) {
@@ -34,6 +38,9 @@ public class Iteration {
     }
 
 
+    /**
+     * 使用内部迭代
+     */
     public long internalCountArtistsFromLondon(List<Artist> allArtists) {
         // BEGIN internal_count_londoners
         long count = allArtists.stream()

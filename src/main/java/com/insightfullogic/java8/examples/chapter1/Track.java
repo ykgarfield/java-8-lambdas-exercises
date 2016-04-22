@@ -7,10 +7,15 @@ package com.insightfullogic.java8.examples.chapter1;
 
 /**
  * @author richard
+ *
+ * 一首歌曲
  */
 public final class Track {
 
+    // 歌曲名称
     private final String name;
+
+    // 歌曲长度(时长)
     private final int length;
 
     public Track(String name, int length) {
