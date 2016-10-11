@@ -14,14 +14,22 @@ import java.util.stream.Stream;
 import static java.util.stream.Collectors.toList;
 
 /**
+ * 创作音乐的个人或团队.
+ * <br><br>
+ *
  * Domain class for a popular music artist.
  *
  * @author Richard Warburton
  */
 public final class Artist {
 
+    // 艺术家的名字
     private String name;
+
+    // 乐队成员
     private List<Artist> members;
+
+    // 国籍
     private String nationality;
 
     public Artist(String name, String nationality) {

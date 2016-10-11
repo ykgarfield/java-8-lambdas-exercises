@@ -6,6 +6,7 @@ import org.junit.Test;
 import java.util.Arrays;
 
 import static com.insightfullogic.java8.answers.chapter3.Question2.countBandMembersInternal;
+import static com.insightfullogic.java8.answers.chapter3.Question2.useFlatMapCountBandMembersInterna;
 import static org.junit.Assert.assertEquals;
 
 public class Question2Test {
@@ -13,6 +14,12 @@ public class Question2Test {
     @Test
     public void internal() {
         assertEquals(4, countBandMembersInternal(Arrays.asList(SampleData.johnColtrane, SampleData.theBeatles)));
+    }
+
+
+    @Test
+    public void internal2() {
+        assertEquals(4, useFlatMapCountBandMembersInterna(Arrays.asList(SampleData.johnColtrane, SampleData.theBeatles)));
     }
 
 }

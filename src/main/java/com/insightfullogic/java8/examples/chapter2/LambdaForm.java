@@ -21,14 +21,5 @@ public class LambdaForm {
             System.out.println("Hello");
             System.out.println("World");
         };
-
-        // 多个参数
-        BinaryOperator<Long> add = (x, y) -> x + y;
-
-        // 编译错误:  cannot be applied to java.lang.Object, java.lang.Object.
-//        BinaryOperator add2 = (x, y) -> x + y;
-
-        // 显式声明参数类型
-        BinaryOperator<Long> addExplicit = (Long x, Long y) -> x + y;
     }
 }

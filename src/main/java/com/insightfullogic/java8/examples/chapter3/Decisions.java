@@ -13,6 +13,7 @@ import static java.util.stream.Collectors.toSet;
 public class Decisions {
 
     public static class Imperative {
+        // 命令式
         // BEGIN origins_of_bands_meth_imp
         public Set<String> originsOfBands(Album album) {
             Set<String> nationalities = new HashSet<>();
@@ -28,6 +29,7 @@ public class Decisions {
     }
 
     public Set<String> originsOfBands(Album album) {
+        // 函数式
         // BEGIN origins_of_bands
         Set<String> origins = album.getMusicians()
                 .filter(artist -> artist.getName().startsWith("The"))

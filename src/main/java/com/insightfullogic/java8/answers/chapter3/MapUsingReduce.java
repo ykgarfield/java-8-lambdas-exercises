@@ -10,6 +10,10 @@ import java.util.stream.Stream;
  */
 public class MapUsingReduce {
 
+
+    /**
+     * 只用 reduce 和 Lambda 表达式写出实现 Stream 上的 map 操作的代码，如果不想返回 Stream，可以返回一个 List
+     */
     public static <I, O> List<O> map(Stream<I> stream, Function<I, O> mapper) {
         return stream.reduce(new ArrayList<O>(), (acc, x) -> {
             // We are copying data from acc to new list instance. It is very inefficient,

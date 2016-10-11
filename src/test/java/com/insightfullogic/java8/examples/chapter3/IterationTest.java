@@ -14,6 +14,6 @@ public class IterationTest {
     @Test
     public void evaluatedPrintOuts() {
         Iteration iteration = new Iteration();
-        iteration.internalCountArtistsFromLondonPrinted(SampleData.membersOfTheBeatles);
+        System.out.println(iteration.internalCountArtistsFromLondonPrinted(SampleData.membersOfTheBeatles));
     }
 }

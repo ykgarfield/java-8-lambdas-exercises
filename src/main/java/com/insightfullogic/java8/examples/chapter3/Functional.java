@@ -17,5 +17,12 @@ public class Functional {
     }
     // END field_assignment
 
-
+    private void registerHandler2() {
+        // final 变量
+        ActionEvent localEvent;
+        button.addActionListener((ActionEvent event) -> {
+            // 编译错误
+            //localEvent = event;
+        });
+    }
 }

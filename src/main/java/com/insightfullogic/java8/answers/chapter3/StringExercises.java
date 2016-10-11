@@ -7,6 +7,7 @@ import java.util.Optional;
 public class StringExercises {
 
     // Question 7
+    // 统计小写字母的个数
     public static int countLowercaseLetters(String string) {
         return (int) string.chars()
                 .filter(Character::isLowerCase)

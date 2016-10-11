@@ -40,6 +40,7 @@ public class Refactor {
             Set<String> trackNames = new HashSet<>();
             albums.stream()
                     .forEach(album -> {
+                        // 得到一个 Stream<Track>
                         album.getTracks()
                                 /*
                                     最内层的 forEach 方法有三个功用：
@@ -69,7 +70,9 @@ public class Refactor {
                                 // 找出满足某种条件的曲目是 filter 的功能
                                 .filter(track -> track.getLength() > 60)
                                 // 得到曲目名称则可用 map 达成
+                                // 这里得到了一个 List<String> 名称列表
                                 .map(track -> track.getName())
+                                // 遍历 List<String>, 参数就是 name(String), 曲目名称
                                 // 终结操作可使用 forEach 方法将曲目名称加入一个集合
                                 .forEach(name -> trackNames.add(name));
                     });
@@ -104,6 +107,7 @@ public class Refactor {
                     .flatMap(album -> album.getTracks())
                     .filter(track -> track.getLength() > 60)
                     .map(track -> track.getName())
+                    // 替换 forEach
                     .collect(toSet());
         }
         // END findLongTracks_4

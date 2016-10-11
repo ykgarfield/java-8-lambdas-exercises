@@ -3,6 +3,7 @@ package com.insightfullogic.java8.answers.chapter3;
 import com.insightfullogic.java8.examples.chapter1.Artist;
 
 import java.util.List;
+import java.util.stream.Stream;
 
 public class Question2 {
     // Q3
@@ -12,5 +13,15 @@ public class Question2 {
                 .map(artist -> artist.getMembers().count())
                 .reduce(0L, Long::sum)
                 .intValue();
+    }
+
+
+    /**
+     * 使用 flatMap() 方法
+     */
+    public static long useFlatMapCountBandMembersInterna(List<Artist> artists) {
+        return artists.stream()
+                .flatMap(artist -> artist.getMembers())
+                .count();
     }
 }

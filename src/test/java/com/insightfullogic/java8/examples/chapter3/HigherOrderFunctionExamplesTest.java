@@ -189,5 +189,18 @@ public class HigherOrderFunctionExamplesTest {
         // END flatmap_characters
     }
 
+
+    @Test
+    public void notFlatMapCharacters() {
+        // 编译错误
+        /*List<Integer> together = Stream.of(asList(1, 2), asList(3, 4))
+                .map(x -> x + 1)
+                .collect(toList());*/
+
+        List<Integer> together2 = Stream.of(1, 2)
+                .map(x -> x + 1)
+                .collect(toList());
+
+    }
 }
 

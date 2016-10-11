@@ -5,6 +5,7 @@ public interface Parent {
 
     public void message(String body);
 
+    // 默认方法
     public default void welcome() {
         message("Parent: Hi!");
     }

@@ -123,6 +123,7 @@ public class LambdaExpressions {
     @Test
     public void mostSpecific() {
 // BEGIN most_specific_overload_call
+        // 输出 String
         overloadedMethod("abc");
 // END most_specific_overload_call
     }
@@ -139,7 +140,6 @@ public class LambdaExpressions {
 
     @Test
     public void mostSpecificBiFunction() {
-
         overloadedMethod((x, y) -> x + y);
     }
 
@@ -157,6 +157,7 @@ public class LambdaExpressions {
     }
     // END most_specific_bifunction
 
+    // 无法推断, 编译报错
 //    @Test
 //    public void mostSpecificPredicate() {
 //        overloadedMethod((x) -> true);
